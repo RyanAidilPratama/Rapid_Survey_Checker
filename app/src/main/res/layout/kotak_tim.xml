@@ -119,7 +119,7 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="30dp"
             android:layout_height="2dp"
-            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardBackgroundColor="@android:color/holo_blue_light"
             app:cardCornerRadius="3dp"
             app:cardElevation="2dp"
             app:layout_constraintBottom_toTopOf="@id/btn_lihat_bangunan"
@@ -132,7 +132,6 @@
             android:text="~"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/btn_lihat_bangunan"
             app:layout_constraintEnd_toStartOf="@id/txt_nim"
             app:layout_constraintStart_toStartOf="parent" />

@@ -3,14 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    signingConfigs {
-        release {
-            storeFile file('F:\\Android Studio\\PKL\\RapidCheckerPKL59\\rapid_checker_pkl_59.jks')
-            storePassword '***REMOVED***'
-            keyAlias = 'rapid_checker_key'
-            keyPassword '***REMOVED***'
-        }
-    }
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
@@ -19,7 +11,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 2
-        versionName "2.1"
+        versionName "2.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

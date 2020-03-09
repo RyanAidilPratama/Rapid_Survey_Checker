@@ -2,13 +2,13 @@ package com.android.id.rapidcheckerpkl59.data.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,7 +49,7 @@ public class AnggotaTimAdapter extends RecyclerView.Adapter<AnggotaTimAdapter.An
     @Override
     public void onBindViewHolder(@NonNull AnggotaTimViewHolder holder, int position) {
         final TeamMember teamMember = getListTeamMember().get(position);
-        String baseUrlImage = "";
+        String baseUrlImage = String.format(context.getString(R.string.base_url_image), teamMember.getNim());
         holder.nim.setText(teamMember.getNim());
         holder.namaDesa.setText(teamMember.getNamaDesa());
         holder.kodeDesa.setText(teamMember.getKodeDesa());
@@ -58,10 +58,14 @@ public class AnggotaTimAdapter extends RecyclerView.Adapter<AnggotaTimAdapter.An
                 .load(baseUrlImage)
                 .into(holder.profPict);
         holder.btnDetail.setOnClickListener(view -> {
-            Intent intent = new Intent(context, DetailsActivity.class);
-            intent.putExtra(DetailsActivity.EXTRA_MEMBER, teamMember);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);
+            if (teamMember.getJumlah_bangunan() > 0) {
+                Intent intent = new Intent(context, DetailsActivity.class);
+                intent.putExtra(DetailsActivity.EXTRA_MEMBER, teamMember);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            } else {
+                Toast.makeText(context, "Tidak ada bangunan terakhir!", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

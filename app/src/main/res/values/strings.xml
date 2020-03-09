@@ -1,6 +1,5 @@
 <resources>
-    <string name="API_KEY" translatable="false"></string>
-    <string name="base_url_api" translatable="false"></string>
-    <string name="base_url_image" translatable="false"></string>
+    <string name="API_KEY" translatable="false">Your Api Key</string>
+    <string name="base_url_image" translatable="false">https://baseurlimage.com/%s.jpg</string>
     <string name="app_name">Rapid Checker PKL 59</string>
 </resources>

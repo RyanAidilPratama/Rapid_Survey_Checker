@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.android.id.rapidcheckerpkl59.data.helper.StaticFinal;
 import com.android.id.rapidcheckerpkl59.data.model.Buildings;
 import com.android.id.rapidcheckerpkl59.data.model.TeamMember;
 import com.loopj.android.http.AsyncHttpClient;
@@ -24,7 +25,7 @@ public class TeamMemberViewModel extends ViewModel {
 
     public void setTeamListMember(String teamCode) {
         AsyncHttpClient client = new AsyncHttpClient();
-        String baseUrl = "";
+        String baseUrl = StaticFinal.BASE_URL + teamCode;
         client.get(baseUrl, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

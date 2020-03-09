@@ -82,7 +82,7 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
     }
 
     private void bind(TeamMember teamMember) {
-        String baseUrl = "";
+        String baseUrl = String.format(getString(R.string.base_url_image), teamMember.getNim());
         Glide.with(this)
                 .load(baseUrl)
                 .into(imgProfile);
