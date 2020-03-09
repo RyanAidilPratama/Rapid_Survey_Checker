@@ -79,6 +79,7 @@
             android:text="Nama Desa              : "
             android:textSize="12sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/txt_jmlh_bangunan_label"
             app:layout_constraintEnd_toEndOf="@id/txt_kode_desa_label"
             app:layout_constraintStart_toStartOf="@id/txt_kode_desa_label"
             app:layout_constraintTop_toBottomOf="@id/txt_kode_desa_label" />
@@ -88,9 +89,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/txt_nama_desa_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/txt_nama_desa_label"
-            app:layout_constraintTop_toBottomOf="@id/txt_nama_desa_label"
             app:layout_constraintTop_toTopOf="@id/txt_nama_desa_label"
             tools:text="TIRTA RAHAYU" />
 
@@ -101,6 +102,7 @@
             android:text="Jumlah Bangunan  : "
             android:textSize="12sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/txt_status_listing_label"
             app:layout_constraintEnd_toStartOf="@id/txt_jmlh_bangunan"
             app:layout_constraintStart_toStartOf="@id/txt_nama_desa_label"
             app:layout_constraintTop_toBottomOf="@id/txt_nama_desa" />
@@ -123,6 +125,8 @@
             android:text="Status Listing         : "
             android:textSize="12sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/btn_lihat_bangunan"
+            app:layout_constraintEnd_toStartOf="@id/txt_status_listing"
             app:layout_constraintStart_toStartOf="@id/txt_jmlh_bangunan_label"
             app:layout_constraintTop_toBottomOf="@id/txt_jmlh_bangunan_label" />
 
@@ -143,9 +147,9 @@
             app:cardBackgroundColor="@android:color/holo_blue_light"
             app:cardCornerRadius="3dp"
             app:cardElevation="2dp"
-            app:layout_constraintBottom_toTopOf="@id/btn_lihat_bangunan"
+            app:layout_constraintBottom_toTopOf="@id/card_prof_pict"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_jmlh_bangunan" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
