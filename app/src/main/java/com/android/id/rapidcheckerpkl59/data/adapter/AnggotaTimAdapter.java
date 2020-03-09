@@ -54,6 +54,11 @@ public class AnggotaTimAdapter extends RecyclerView.Adapter<AnggotaTimAdapter.An
         holder.namaDesa.setText(teamMember.getNamaDesa());
         holder.kodeDesa.setText(teamMember.getKodeDesa());
         holder.jmlhBangunan.setText(String.valueOf(teamMember.getJumlah_bangunan()));
+        String statusListing = teamMember.getStatus().toUpperCase();
+        if (statusListing.equalsIgnoreCase("UPLOADED")) {
+            statusListing = "SAMPEL DIAMBIL";
+        }
+        holder.statusListing.setText(statusListing);
         Glide.with(context)
                 .load(baseUrlImage)
                 .into(holder.profPict);
@@ -75,7 +80,7 @@ public class AnggotaTimAdapter extends RecyclerView.Adapter<AnggotaTimAdapter.An
     }
 
     class AnggotaTimViewHolder extends RecyclerView.ViewHolder {
-        private TextView nim, kodeDesa, namaDesa, jmlhBangunan;
+        private TextView nim, kodeDesa, namaDesa, jmlhBangunan, statusListing;
         private ImageView profPict;
         private Button btnDetail;
 
@@ -88,6 +93,7 @@ public class AnggotaTimAdapter extends RecyclerView.Adapter<AnggotaTimAdapter.An
             profPict = itemView.findViewById(R.id.prof_pict);
             btnDetail = itemView.findViewById(R.id.btn_lihat_bangunan);
             jmlhBangunan = itemView.findViewById(R.id.txt_jmlh_bangunan);
+            statusListing = itemView.findViewById(R.id.txt_status_listing);
         }
     }
 }
