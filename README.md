@@ -2,7 +2,7 @@
 
 Rapid Checker is an Android application that is used for tracking mapping progress of rapid survey in the research of Batch 59 Politeknik Statistika STIS.
 
-## App Feature
+## Screenshots
 #### - Home Activity
 ![home_activity](http://i.ibb.co/TTr7tMp/home.png)
 
