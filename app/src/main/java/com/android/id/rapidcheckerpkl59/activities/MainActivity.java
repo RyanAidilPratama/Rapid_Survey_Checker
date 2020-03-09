@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.id.rapidcheckerpkl59.R;
-import com.android.id.rapidcheckerpkl59.data.adapter.AnggotaTimAdapter;
+import com.android.id.rapidcheckerpkl59.data.adapter.TeamMemberAdapter;
 import com.android.id.rapidcheckerpkl59.data.model.TeamMember;
 import com.android.id.rapidcheckerpkl59.data.viewmodel.TeamMemberViewModel;
 import com.google.android.material.textfield.TextInputEditText;
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                         if (teamMembers != null) {
                             rvAnggotatim.setVisibility(View.VISIBLE);
                             rvAnggotatim.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                            AnggotaTimAdapter adapter = new AnggotaTimAdapter(getApplicationContext());
+                            TeamMemberAdapter adapter = new TeamMemberAdapter(getApplicationContext());
                             adapter.setListProvince(teamMembers);
                             rvAnggotatim.setAdapter(adapter);
                             progressBar.setVisibility(View.GONE);

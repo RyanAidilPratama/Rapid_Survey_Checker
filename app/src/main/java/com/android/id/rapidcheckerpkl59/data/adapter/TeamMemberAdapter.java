@@ -20,7 +20,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class AnggotaTimAdapter extends RecyclerView.Adapter<AnggotaTimAdapter.AnggotaTimViewHolder> {
+public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.TeamMemberViewHolder> {
 
     private Context context;
     private ArrayList<TeamMember> listTeamMember = new ArrayList<>();
@@ -35,19 +35,19 @@ public class AnggotaTimAdapter extends RecyclerView.Adapter<AnggotaTimAdapter.An
         notifyDataSetChanged();
     }
 
-    public AnggotaTimAdapter(Context context) {
+    public TeamMemberAdapter(Context context) {
         this.context = context;
     }
 
     @NonNull
     @Override
-    public AnggotaTimViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TeamMemberViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.kotak_tim, parent, false);
-        return new AnggotaTimViewHolder(view);
+        return new TeamMemberViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AnggotaTimViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TeamMemberViewHolder holder, int position) {
         final TeamMember teamMember = getListTeamMember().get(position);
         String baseUrlImage = String.format(context.getString(R.string.base_url_image), teamMember.getNim());
         holder.nim.setText(teamMember.getNim());
@@ -79,12 +79,12 @@ public class AnggotaTimAdapter extends RecyclerView.Adapter<AnggotaTimAdapter.An
         return listTeamMember.size();
     }
 
-    class AnggotaTimViewHolder extends RecyclerView.ViewHolder {
+    class TeamMemberViewHolder extends RecyclerView.ViewHolder {
         private TextView nim, kodeDesa, namaDesa, jmlhBangunan, statusListing;
         private ImageView profPict;
         private Button btnDetail;
 
-        AnggotaTimViewHolder(@NonNull View itemView) {
+        TeamMemberViewHolder(@NonNull View itemView) {
             super(itemView);
             nim = itemView.findViewById(R.id.txt_nim);
             kodeDesa = itemView.findViewById(R.id.txt_kode_desa);
