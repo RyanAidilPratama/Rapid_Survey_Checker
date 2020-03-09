@@ -21,7 +21,7 @@ Rapid Checker is an Android application that is used for tracking mapping progre
 #### - Show Only BTT (Bangunan Tempat Tinggal) Marker
 ![show_btt_marker](http://i.ibb.co/Zz8w9hz/lihat-bangunan-tempat-tinggal.png)
 
-## - Contributing
+## - Future
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
