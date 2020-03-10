@@ -72,7 +72,6 @@
         android:background="@android:color/darker_gray"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
-        app:contentPadding="16dp"
         app:layout_constraintBottom_toTopOf="@id/list_team_member"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +79,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
 
             <ImageView
                 android:id="@+id/logo_capi"
@@ -109,33 +109,46 @@
                     android:id="@+id/main_team_code_query"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
                     android:hint="Kode Tim"
                     android:inputType="numberDecimal"
                     android:maxLength="5"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <androidx.cardview.widget.CardView
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/main_btn_search_card"
                 android:layout_width="60dp"
                 android:layout_height="45dp"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="@id/main_team_code_cube"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/main_team_code_cube"
                 app:layout_constraintTop_toTopOf="@id/main_team_code_cube">
 
                 <ImageButton
-                    android:id="@+id/main_btn_search"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toEndOf="@id/main_team_code_cube"
-                    android:background="@drawable/login_shape_bk"
-                    android:src="@drawable/ic_search_black_24dp" />
-            </androidx.cardview.widget.CardView>
+                    android:id="@+id/btn_prev_team"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btn_next_team"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/btn_next_team"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:rotation="180"
+                    android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
+                    app:layout_constraintBottom_toBottomOf="@id/btn_prev_team"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_prev_team"
+                    app:layout_constraintTop_toTopOf="@id/btn_prev_team" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
