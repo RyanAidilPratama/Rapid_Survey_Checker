@@ -60,6 +60,8 @@ public class StaticFinal {
 
 ```` 
 
+You can get your Google Service API KEY from [here](https://console.cloud.google.com)
+
 ## - Future
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
