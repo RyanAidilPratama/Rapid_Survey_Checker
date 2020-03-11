@@ -53,9 +53,8 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
 
     GoogleMap gMap;
     Polygon polygons = null;
-    Polyline mainPolyline = null, grayPolyline = null;
+    Polyline mainPolyline = null;
     List<LatLng> latLngs = new ArrayList<>();
-    List<LatLng> listLatLng = new ArrayList<>();
     ArrayList<Buildings> buildings = new ArrayList<>();
     ArrayList<Marker> markers = new ArrayList<>();
     TeamMember teamMember;
@@ -326,41 +325,15 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
     void checkPolyLine() {
         checkPolygon.setOnCheckedChangeListener((compoundButton, b) -> {
             if (compoundButton.isChecked()) {
-//                ArrayList<LatLng> points = null;
                 PolylineOptions mainOptions = new PolylineOptions();
-//                for (int i = 0; i < latLngs.size(); i++) {
-//                    points = new ArrayList<>();
-//                    mainOptions = new PolylineOptions();
-//                    for (int j = 0; j < latLngs.size(); j++) {
-//                        LatLng pos = new LatLng(latLngs.get(j).latitude, latLngs.get(j).longitude);
-//                        points.add(pos);
-//                    }
-//                    this.listLatLng.addAll(points);
-//                }
-
                 mainOptions.color(getResources().getColor(R.color.colorPrimary));
                 mainOptions.startCap(new SquareCap());
                 mainOptions.endCap(new SquareCap());
                 mainOptions.jointType(JointType.ROUND);
                 mainOptions.addAll(latLngs);
                 mainPolyline = gMap.addPolyline(mainOptions);
-
-//                PolylineOptions grayOptions = new PolylineOptions();
-//                grayOptions.width(10);
-//                grayOptions.color(Color.GRAY);
-//                grayOptions.startCap(new SquareCap());
-//                grayOptions.endCap(new SquareCap());
-//                grayOptions.jointType(JointType.ROUND);
-//                grayOptions.addAll(latLngs);
-//                grayPolyline = gMap.addPolyline(grayOptions);
-//                animatePolyline();
-//                if (mainPolyline != null) {
-//                    mainPolyline.remove();
-//                    grayPolyline.remove();
-//                }
             } else {
                 mainPolyline.remove();
-//                grayPolyline.remove();
             }
         });
     }
@@ -504,55 +477,4 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
             }
         });
     }
-
-    void animatePolyline() {
-        ValueAnimator animator = ValueAnimator.ofInt(0, 100);
-        animator.setDuration(1000);
-        animator.setInterpolator(new LinearInterpolator());
-        animator.addUpdateListener(valueAnimator -> {
-            List<LatLng> latLngList = mainPolyline.getPoints();
-            int initialPointSize = latLngList.size();
-            int animatedValue = (int) animator.getAnimatedValue();
-            int newPoints = (animatedValue * latLngList.size()) / 100;
-            if (initialPointSize < newPoints) {
-                latLngList.addAll(listLatLng.subList(initialPointSize, newPoints));
-                mainPolyline.setPoints(latLngList);
-            }
-        });
-        animator.addListener(polyLineAnimatorListener);
-        animator.start();
-    }
-
-    Animator.AnimatorListener polyLineAnimatorListener = new Animator.AnimatorListener() {
-        @Override
-        public void onAnimationStart(Animator animator) {
-
-        }
-
-        @Override
-        public void onAnimationEnd(Animator animator) {
-            List<LatLng> mainLatng = mainPolyline.getPoints();
-            List<LatLng> grayLatLngs = grayPolyline.getPoints();
-
-            grayLatLngs.clear();
-            grayLatLngs.addAll(mainLatng);
-            mainLatng.clear();
-
-            mainPolyline.setPoints(mainLatng);
-            grayPolyline.setPoints(grayLatLngs);
-
-            mainPolyline.setZIndex(2);
-            animator.start();
-        }
-
-        @Override
-        public void onAnimationCancel(Animator animator) {
-
-        }
-
-        @Override
-        public void onAnimationRepeat(Animator animator) {
-
-        }
-    };
 }
