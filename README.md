@@ -50,6 +50,7 @@ Don't forget to change some of this line :
 ``` java
 public class StaticFinal {
     public static final String BASE_URL = "Your Api URL goes here";
+    public static final String BASE_URL_POLYGON = "Your Polygon URL goes here";
 }
 ```
 

@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 
 import com.android.id.rapidcheckerpkl59.R;
+import com.android.id.rapidcheckerpkl59.data.helper.StaticFinal;
 import com.android.id.rapidcheckerpkl59.data.model.Buildings;
 import com.android.id.rapidcheckerpkl59.data.model.TeamMember;
 import com.bumptech.glide.Glide;
@@ -252,7 +253,7 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
 
     void getPolygonMap(GoogleMap gMap) {
         AsyncHttpClient client = new AsyncHttpClient();
-        String BASE_URL_POLYGON = "http://gis.jogjaprov.go.id/geoserver/geonode/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonode%3AAdmin_Desa_AR_RBI25K&maxFeatures=437&outputFormat=application%2Fjson";
+        String BASE_URL_POLYGON = StaticFinal.BASE_URL_POLYGON;
         client.get(BASE_URL_POLYGON, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
