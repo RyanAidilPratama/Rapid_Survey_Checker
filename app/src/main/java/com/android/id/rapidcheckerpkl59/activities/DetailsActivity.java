@@ -1,12 +1,9 @@
 package com.android.id.rapidcheckerpkl59.activities;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -262,13 +259,40 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
                     JSONObject object = new JSONObject(result);
                     JSONArray villages = object.getJSONArray("features");
                     for (int i = 0; i < villages.length(); i++) {
-                        String villageName = villages.getJSONObject(i).getJSONObject("properties").getString("NAMOBJ");
-                        String districtName = villages.getJSONObject(i).getJSONObject("properties").getString("Kecamatan");
-                        if (villageName.equalsIgnoreCase(teamMember.getNamaDesa()) && districtName.equalsIgnoreCase(teamMember.getNamaKecamatan())) {
+                        String villageName = villages
+                                .getJSONObject(i)
+                                .getJSONObject("properties")
+                                .getString("NAMOBJ");
+                        String districtName = villages
+                                .getJSONObject(i)
+                                .getJSONObject("properties")
+                                .getString("Kecamatan");
+                        if (villageName.equalsIgnoreCase(teamMember.getNamaDesa()) &&
+                                districtName.equalsIgnoreCase(teamMember.getNamaKecamatan())) {
                             if (polygons != null) polygons.remove();
-                            for (int j = 0; j < villages.getJSONObject(i).getJSONObject("geometry").getJSONArray("coordinates").getJSONArray(0).getJSONArray(0).length(); j++) {
-                                double lat = (double) villages.getJSONObject(i).getJSONObject("geometry").getJSONArray("coordinates").getJSONArray(0).getJSONArray(0).getJSONArray(j).get(1);
-                                double lng = (double) villages.getJSONObject(i).getJSONObject("geometry").getJSONArray("coordinates").getJSONArray(0).getJSONArray(0).getJSONArray(j).get(0);
+                            for (int j = 0; j < villages
+                                    .getJSONObject(i)
+                                    .getJSONObject("geometry")
+                                    .getJSONArray("coordinates")
+                                    .getJSONArray(0)
+                                    .getJSONArray(0)
+                                    .length(); j++) {
+                                double lat = (double) villages
+                                        .getJSONObject(i)
+                                        .getJSONObject("geometry")
+                                        .getJSONArray("coordinates")
+                                        .getJSONArray(0)
+                                        .getJSONArray(0)
+                                        .getJSONArray(j)
+                                        .get(1);
+                                double lng = (double) villages
+                                        .getJSONObject(i)
+                                        .getJSONObject("geometry")
+                                        .getJSONArray("coordinates")
+                                        .getJSONArray(0)
+                                        .getJSONArray(0)
+                                        .getJSONArray(j)
+                                        .get(0);
                                 LatLng latLng = new LatLng(lat, lng);
                                 polygonCluster.add(latLng);
                             }
